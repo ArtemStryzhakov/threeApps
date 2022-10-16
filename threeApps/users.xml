@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+  <User id="gymPump@gmail.com">
+    <username>Artem</username>
+    <password>LexusPump</password>
+    <email>gymPump@gmail.com</email>
+    <sugu>pump</sugu>
+    <vanus>43</vanus>
+  </User>
+  <User id="andrew@gmail.com">
+    <username>Andrew</username>
+    <password>123123</password>
+    <email>andrew@gmail.com</email>
+    <sugu>mees</sugu>
+    <vanus>18</vanus>
+  </User>
+  <User id="noPump@gmail.com">
+    <username>Aleksei</username>
+    <password>qwe</password>
+    <email>noPump@gmail.com</email>
+    <sugu>mees</sugu>
+    <vanus>18</vanus>
+  </User>
+  <User id="123@gmail.com">
+    <username>123</username>
+    <password>123</password>
+    <email>123@gmail.com</email>
+    <sugu>mees</sugu>
+    <vanus>123</vanus>
+  </User>
+</Profile>
