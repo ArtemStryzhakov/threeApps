@@ -132,11 +132,50 @@ Selles rakenduses töötab kõik nagu õpetuses, muudatusi pole.
 #### Sulge - sulgege rakendus
 #### Näita pilti - avage failiuurija, kus peate valima mis tahes pildi
 
-![alt text](images/picture2.png)\
+![alt text](images/picture2.png)
+
+```C#
+OpenFileD = new OpenFileDialog
+            {
+                Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|BMP Files (*.bmp)|*.bmp|All files (*.*)|*.*",
+                Title = "Valige pildifail"
+            };
+```
+
+```C#
+private void Show_Click(object sender, EventArgs e)
+        {
+            if (OpenFileD.ShowDialog() == DialogResult.OK)
+            {
+                pBox.Load(OpenFileD.FileName);
+            }
+        }
+```
+
 ![alt text](images/picture3.png)
 
 #### Tühjenda pilt - sulgege rakendus
 #### Veenitada - optimeerige pilt PictureBoxi jaoks, kui see on liiga suur
+
+```C#
+cBox = new CheckBox
+            {
+                Text = "Venitada"
+            };
+            cBox.CheckedChanged += Cb_CheckedChanged;
+```
+
+```C#
+private void Cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cBox.Checked) {
+                pBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            else {
+                pBox.SizeMode = PictureBoxSizeMode.Normal;
+            }
+        }
+```
 
 ## Matemaatika viktoriin
 
