@@ -7,9 +7,10 @@ Sellel programmil on kaks ainulaadset funktsiooni: Logi sisse, Registreeri ja Pa
 Koodi näide:\
 Funktsiooni:
 ```C#
-public static void Append(string filename, string username, string password)
+public static void Append(string filename, string username, string password, string email, string sugu, string vanus)
         {
-            var username_ob = new XElement("User", new XElement("username", username), new XElement("password", password));
+            var username_ob = new XElement("User", new XAttribute("id", email), new XElement("username", username), new XElement("password", password), new XElement("email", email),
+                new XElement("sugu", sugu), new XElement("vanus", vanus)); // username = kasutaja
 
             var doc = new XDocument();
 
@@ -28,14 +29,26 @@ public static void Append(string filename, string username, string password)
 
 Funktsiooni deklareerimine:
 ```C#
-if (username.Text != "" && password.Text != "")
+private void Btn_Click(object sender, EventArgs e)
+        {
+            string xmlPath = "@..\\..\\..\\..\\users.xml";
+            
+            if (username.Text != "" && password.Text != "" && email.Text != "" && sugu.Text != "" && vanus.Text != "")
             {
-                Append(xmlPath, username.Text, password.Text);
+                if (email.Text.Contains("@") && email.Text.Contains("."))
+                {
+                    Append(xmlPath, username.Text, password.Text, email.Text, sugu.Text, vanus.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Kas e-post või sugu on vale");
+                }
             }
             else
             {
-                MessageBox.Show("Nope, fill that textfield!");
+                MessageBox.Show("Ei, täitke see tekstiväli!");
             }
+       }
 ```
 
 ![alt text](images/login.png)
