@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
+
 namespace threeApps
 {
     public class DifficultyMath : Form
@@ -200,9 +201,9 @@ namespace threeApps
         private void Timer_Tick(object sender, EventArgs e)
         {
             NumericUpDown Numer = (NumericUpDown)tlp.GetControlFromPosition(4, 1);
-            NumericUpDown minN = (NumericUpDown)tlp.GetControlFromPosition(4, 2);
-            NumericUpDown mulN = (NumericUpDown)tlp.GetControlFromPosition(4, 3);
-            NumericUpDown divN = (NumericUpDown)tlp.GetControlFromPosition(4, 4);
+            NumericUpDown minNumer = (NumericUpDown)tlp.GetControlFromPosition(4, 2);
+            NumericUpDown mulNumer = (NumericUpDown)tlp.GetControlFromPosition(4, 3);
+            NumericUpDown divNumer = (NumericUpDown)tlp.GetControlFromPosition(4, 4);
             if (CheckTheAnswer())
             {
                 timer.Stop();
@@ -224,20 +225,20 @@ namespace threeApps
                 if (DifficultyMath.a == 3)
                 {
                     Numer.Value = firstPlus + secondPlus;
-                    minN.Value = firstMn - secondMn;
+                    minNumer.Value = firstMn - secondMn;
                 }
                 else if (DifficultyMath.a == 4)
                 {
                     Numer.Value = firstPlus + secondPlus;
-                    minN.Value = firstMn - secondMn;
-                    mulN.Value = firstMl * secondMl;
+                    minNumer.Value = firstMn - secondMn;
+                    mulNumer.Value = firstMl * secondMl;
                 }
                 else
                 {
                     Numer.Value = firstPlus + secondPlus;
-                    minN.Value = firstMn - secondMn;
-                    mulN.Value = firstMl * secondMl;
-                    divN.Value = firstD / secondD;
+                    minNumer.Value = firstMn - secondMn;
+                    mulNumer.Value = firstMl * secondMl;
+                    divNumer.Value = firstD / secondD;
                 }
                 
                 start.Enabled = true;
@@ -254,13 +255,13 @@ namespace threeApps
 
         private bool CheckTheAnswer()
         {
-            NumericUpDown N = (NumericUpDown)tlp.GetControlFromPosition(4, 1);
-            NumericUpDown minN = (NumericUpDown)tlp.GetControlFromPosition(4, 2);
-            NumericUpDown mulN = (NumericUpDown)tlp.GetControlFromPosition(4, 3);
-            NumericUpDown divN = (NumericUpDown)tlp.GetControlFromPosition(4, 4);
+            NumericUpDown Numer = (NumericUpDown)tlp.GetControlFromPosition(4, 1);
+            NumericUpDown minNumer = (NumericUpDown)tlp.GetControlFromPosition(4, 2);
+            NumericUpDown mulNumer = (NumericUpDown)tlp.GetControlFromPosition(4, 3);
+            NumericUpDown divNumer = (NumericUpDown)tlp.GetControlFromPosition(4, 4);
             if (DifficultyMath.a == 3)
             {
-                if ((firstPlus + secondPlus == N.Value) && (firstMn - secondMn == minN.Value))
+                if ((firstPlus + secondPlus == Numer.Value) && (firstMn - secondMn == minNumer.Value))
                     return true;
                 else
                     return false;
@@ -269,7 +270,7 @@ namespace threeApps
             }
             else if (DifficultyMath.a == 4)
             {
-                if ((firstPlus + secondPlus == N.Value) && (firstMn - secondMn == minN.Value) && (firstMl * secondMl == mulN.Value))
+                if ((firstPlus + secondPlus == Numer.Value) && (firstMn - secondMn == minNumer.Value) && (firstMl * secondMl == mulNumer.Value))
 
                     return true;
 
@@ -281,7 +282,7 @@ namespace threeApps
 
             else if (DifficultyMath.a == 5)
             {
-                if ((firstPlus + secondPlus == N.Value) && (firstMn - secondMn == minN.Value) && (firstMl * secondMl == mulN.Value) && (firstD / secondD == divN.Value))
+                if ((firstPlus + secondPlus == Numer.Value) && (firstMn - secondMn == minNumer.Value) && (firstMl * secondMl == mulNumer.Value) && (firstD / secondD == divNumer.Value))
                     return true;
                 else
                     return false;
