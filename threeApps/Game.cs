@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -81,10 +81,11 @@ namespace threeApps
     public partial class Game : Form
     {
         Random random = new Random();
+        Timer timer;
         TableLayoutPanel tlp;
         Label firstClk = null;
         Label secondClk = null;
-        Timer tm;
+        
         List<string> icons = new List<string>() {};
 
         List<string> iconsCopy = new List<string>()
@@ -153,16 +154,16 @@ namespace threeApps
                     tlp.Controls.Add(lb, i, j);
                 }
             }
-            tm = new Timer();
-            tm.Interval = 750;
-            tm.Tick += Tm_Tick;
+            timer = new Timer();
+            timer.Interval = 750;
+            timer.Tick += Timer_Tick;
             Controls.AddRange(new Control[] { tlp });
             AssignIconsToSquares();
         }
 
-        private void Tm_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
-            tm.Stop();
+            timer.Stop();
             firstClk.ForeColor = firstClk.BackColor;
             secondClk.ForeColor = secondClk.BackColor;
             firstClk = null;
@@ -186,7 +187,7 @@ namespace threeApps
 
         private void label1_Click(object sender, EventArgs e)
         {
-            if (tm.Enabled == true)
+            if (timer.Enabled == true)
                 return;
 
             Label clickedLabel = sender as Label;
@@ -215,7 +216,7 @@ namespace threeApps
                     return;
                 }
 
-                tm.Start();
+                timer.Start();
             }
         }
         private void CheckForWinner()
@@ -236,4 +237,3 @@ namespace threeApps
         }
     }
 }
-
