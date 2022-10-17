@@ -167,7 +167,7 @@ private void Show_Click(object sender, EventArgs e)
 
 ![alt text](images/picture3.png)
 
-#### Tühjenda pilt - sulgege rakendus
+#### Tühjenda pilt - puhas pilt
 #### Veenitada - optimeerige pilt PictureBoxi jaoks, kui see on liiga suur
 
 ```C#
